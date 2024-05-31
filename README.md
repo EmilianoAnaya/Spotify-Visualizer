@@ -20,9 +20,9 @@ https://localhost:8888/callback
 
 (resources/constants/SPOTIFY_CREDENTIALS.py)
 
-5.- Once paste the credentials, you can start up the App in the App.py section and you are ready to go.
+5.- Once paste the credentials, you can start up the Widget in the App.py section and you are ready to go.
 
-## Captures of the App
+## Captures of the Widget
 
 ![image](https://github.com/EmilianoAnaya/Spotify-Visualizer/assets/150195114/56cc2a58-7796-4a0e-a4ae-771d87dcccf4)
 
