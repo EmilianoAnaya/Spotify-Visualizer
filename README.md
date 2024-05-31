@@ -1,4 +1,12 @@
 # Libraries used for the Widget
+For the installation of the libraries we recomend to create a venv:
+```sh
+python -m venv .venv
+```
+Once made the venv, activate it with:
+```sh
+.venv/scripts/activate
+```
 * PySide6 (6.7.0. Version)
 ```sh
 pip install pyside6==6.7.0
