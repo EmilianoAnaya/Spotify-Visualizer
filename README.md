@@ -5,7 +5,7 @@ python -m venv .venv
 ```
 Once made the venv, activate it with:
 ```sh
-.venv/scripts/activate
+source .venv/scripts/activate
 ```
 * PySide6 (6.7.0. Version)
 ```sh
