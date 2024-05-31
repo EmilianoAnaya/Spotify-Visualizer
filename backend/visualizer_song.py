@@ -2,6 +2,7 @@ from resources.constants.SPOTIFY_CREDENTIALS import CLIENT_ID, CLIENT_SECRET, RE
 from PySide6.QtCore import QTimer, Qt
 from frontend.ui_visualizer_song import Ui_Visualizer_Song
 from PySide6.QtWidgets import QMainWindow
+from PySide6.QtGui import QIcon
 from spotipy.oauth2 import SpotifyOAuth
 import tempfile
 import requests
@@ -13,15 +14,16 @@ class Visualizer_Song(QMainWindow):
         super().__init__()
         self.ui = Ui_Visualizer_Song()
         self.ui.setupUi(self)
+        icon = QIcon("resources/images/Spotify_visualizer_logo.png")
+        self.setWindowIcon(icon)
 
         self.spotify = spotipy.Spotify(auth_manager=SpotifyOAuth(CLIENT_ID, CLIENT_SECRET, REDIRECT_UI, scope="user-read-playback-state"))
         self.CurrentTrack:str = ""
         self.tmp_file_path: str = ""
 
-        self.ui.label_SongArtist.setVisible(False)
-        self.ui.label_SongName.setVisible(False)
         self.mouse_pressed = False
         self.old_pos = None
+        self.flagdelete = False
 
         self.CheckTimer = QTimer()
         self.CheckTimer.setInterval(4000)
@@ -34,9 +36,6 @@ class Visualizer_Song(QMainWindow):
         return elided_text
     
     def setSongInfo(self, SongName:str, Artists:list) -> None:
-        self.ui.label_SongArtist.setVisible(True)
-        self.ui.label_SongName.setVisible(True)
-
         Truncate_song_name = self.truncate_text(SongName, self.ui.label_SongName)
         self.ui.label_SongName.setText(Truncate_song_name)
 
@@ -78,11 +77,13 @@ class Visualizer_Song(QMainWindow):
             delete_tmp_file = self.tmp_file_path
             self.tmp_file_path = self.setAlbumCover(results['item']['album']['images'][1]["url"])
             self.setSongInfo(results['item']['name'],results['item']['artists'])
+            self.flagdelete = True
             if delete_tmp_file != "":
                 self.DeleteTmpImage(delete_tmp_file)
 
     def closeEvent(self,event):
-        self.DeleteTmpImage(self.tmp_file_path)
+        if self.flagdelete:
+            self.DeleteTmpImage(self.tmp_file_path)
         event.accept()
 
     def mousePressEvent(self, event):

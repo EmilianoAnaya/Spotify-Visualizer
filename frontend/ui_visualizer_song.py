@@ -155,8 +155,8 @@ class Ui_Visualizer_Song(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label_SongName.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_SongArtist.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_SongName.setText(QCoreApplication.translate("MainWindow", u"Waiting for a Song to Track", None))
+        self.label_SongArtist.setText(QCoreApplication.translate("MainWindow", u"Select a song from your Spotify", None))
     # retranslateUi
 
 if __name__ == "__main__":
