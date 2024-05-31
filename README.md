@@ -21,3 +21,11 @@ https://localhost:8888/callback
 (resources/constants/SPOTIFY_CREDENTIALS.py)
 
 5.- Once paste the credentials, you can start up the App in the App.py section and you are ready to go.
+
+## Captures of the App
+
+![image](https://github.com/EmilianoAnaya/Spotify-Visualizer/assets/150195114/56cc2a58-7796-4a0e-a4ae-771d87dcccf4)
+
+![image](https://github.com/EmilianoAnaya/Spotify-Visualizer/assets/150195114/3bcb4ed9-2698-4449-bbd1-4950ec8cf486)
+
+![image](https://github.com/EmilianoAnaya/Spotify-Visualizer/assets/150195114/e3ba096b-1402-4da7-89f8-34080a6c2b65)
