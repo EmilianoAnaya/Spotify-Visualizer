@@ -44,7 +44,7 @@ class Visualizer_Song(QMainWindow):
     
     def setAlbumCover(self, AlbumCover: str):
         getImage = requests.get(AlbumCover)
-        tmp_dir = tempfile.mkdtemp(dir="resources/images/tmp_covers")
+        tmp_dir = tempfile.mkdtemp(dir="resources/images/")
         tmp_file_path = os.path.join(tmp_dir, "cover.jpg")
         with open(tmp_file_path, 'wb') as file:
             file.write(getImage.content)
