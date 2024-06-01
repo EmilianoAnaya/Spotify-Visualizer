@@ -1,30 +1,41 @@
-# Libraries used for the Widget
-For the installation of the libraries we recomend to create a venv:
+
+# How to use this Widget
+1.- Create a virtual enviroment for the widget and activate it:
 ```sh
 python -m venv .venv
+```
+```sh
+source .venv/scripts/activate
+```
+
+2.- Once created the virtual enviroment, install to it the following libraries:
+* Spotipy
+```sh
+pip install spotipy
 ```
 * PySide6 (6.7.0. Version)
 ```sh
 pip install pyside6==6.7.0
 ```
-* Spotipy
-```sh
-pip install spotipy
-```
-## How to use this Widget
-1.- Go to your [Spotify Dashboard](https://developer.spotify.com/dashboard), login to your account and create an App.
 
-2.- On the screen for creating the App, you can put whatever title and description you want for the application, but for the section of "Redirect URIs" make sure to write down:
+3.- Go to your [Spotify Dashboard](https://developer.spotify.com/dashboard), login to your account and create an App.
+
+4.- On the screen for creating the App, you can put whatever title and description you want for the application, but for the section of "Redirect URIs" make sure to write down:
 ```sh
 https://localhost:8888/callback
 ```
-3.- Once created the app in the Dashboard, open it and head to settings.
+5.- Once created the app in the Dashboard, open it and head to settings.
 
-4.- In the Basic Information section, you'll need to copy your CLIENT_ID and CLIENT_SECRET and paste it on the SPOTIFY_CREDENTIALS archive.
+6.- In the Basic Information section, you'll need your CLIENT_ID and CLIENT_SECRET so you can pass the Authentication for the use of the widget. Open the Setup.bat
 
-(resources/constants/SPOTIFY_CREDENTIALS.py)
+7.- The Setup.bat will open up with a command line and the Interface where you are gonna paste and submit your Credentials. 
 
-5.- Once paste the credentials, you can start up the Widget in the App.py section and you are ready to go.
+![image](https://github.com/EmilianoAnaya/Spotify-Visualizer/assets/150195114/06467e07-bddc-428d-932b-6caea5a6fc90)
+
+
+8.- Once you have entered your credentials, your browser will redirect you to Spotify so you can authenticate your account, then you will be redirected to a new page that will not load, copy the link to the new page and paste it into the terminal when prompted.
+
+9.- Once pasted the link, the setup will be done and now you can execute the App.vbs file. After this you only need to use this file to use the Widget.
 
 ## Captures of the Widget
 
