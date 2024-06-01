@@ -4,7 +4,6 @@ from frontend.ui_visualizer_song import Ui_Visualizer_Song
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QIcon
 from spotipy.oauth2 import SpotifyOAuth
-from time import sleep
 import tempfile
 import requests
 import spotipy
