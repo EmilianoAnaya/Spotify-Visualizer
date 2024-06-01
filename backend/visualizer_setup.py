@@ -10,6 +10,7 @@ class Visualizersetup(QMainWindow):
         self.ui = Ui_VisualizerSetup()
         self.ui.setupUi(self)
         self.spotify = None
+        os.remove(".cache")
 
         print("DO NOT CLOSE THIS WINDOW, YOU'LL NEED IT FOR THE REDIRECT URI FOR THE AUTHENTICATION!")
 
