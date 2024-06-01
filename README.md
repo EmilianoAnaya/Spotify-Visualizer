@@ -28,7 +28,7 @@ https://localhost:8888/callback
 
 6.- In the Basic Information section, you'll need your CLIENT_ID and CLIENT_SECRET so you can pass the Authentication for the use of the widget. Open the Setup.bat
 
-7.- The Setup.bat will open up with a command line and the Interface where you are gonna paste and submit your Credentials. 
+7.- The Setup.bat will open up with a terminal and the Interface where you are gonna paste and submit your Credentials. 
 
 ![image](https://github.com/EmilianoAnaya/Spotify-Visualizer/assets/150195114/06467e07-bddc-428d-932b-6caea5a6fc90)
 
