@@ -10,7 +10,8 @@ class Visualizersetup(QMainWindow):
         self.ui = Ui_VisualizerSetup()
         self.ui.setupUi(self)
         self.spotify = None
-        os.remove(".cache")
+        if os.path.exists(".cache"):    
+            os.remove(".cache")
 
         print("DO NOT CLOSE THIS WINDOW, YOU'LL NEED IT FOR THE REDIRECT URI FOR THE AUTHENTICATION!")
 
@@ -25,7 +26,7 @@ class Visualizersetup(QMainWindow):
                     }
             with open('resources/credentials/data.json',"w") as file:
                 json.dump(data,file,indent=4)
-            print("Success, you may now close this window and execute App.vbs")
+            print("Success, you may now close this window and execute App.vbs\nWARNING: If you open up this file again, the Access Token will be lost and you'll have to\nregister your credentials again.")
 
     
     def Submit(self):
