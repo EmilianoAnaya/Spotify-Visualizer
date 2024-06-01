@@ -1,9 +1,5 @@
 .cache
 .venv
 __pycache__/
-dist
-build
-App.spec
-Setup.spec
 test.py
 data.json

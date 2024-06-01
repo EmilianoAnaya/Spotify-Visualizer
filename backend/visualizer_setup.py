@@ -24,7 +24,7 @@ class Visualizersetup(QMainWindow):
                     }
             with open('resources/credentials/data.json',"w") as file:
                 json.dump(data,file,indent=4)
-            print("Success, you may now close this window and execute App.exe")
+            print("Success, you may now close this window and execute App.vbs")
 
     
     def Submit(self):
