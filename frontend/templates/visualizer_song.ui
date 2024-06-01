@@ -106,12 +106,12 @@
       </layout>
      </widget>
     </item>
-    <item alignment="Qt::AlignmentFlag::AlignVCenter">
+    <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
      <widget class="QWidget" name="widget_Song" native="true">
       <property name="minimumSize">
        <size>
         <width>815</width>
-        <height>210</height>
+        <height>0</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -122,7 +122,9 @@
       </property>
       <property name="styleSheet">
        <string notr="true">#widget_Song{
-	border-image: url(:/prefijoNuevo/Spotify_visualizer_logo.png);
+	/*border-image: url(:/prefijoNuevo/Spotify_visualizer_logo.png);*/
+	
+	border-image: url(:/prefijoNuevo/ab67616d0000b273af634982d9b15de3c77f7dd9.jpg);
 }
 
 </string>
@@ -145,13 +147,25 @@
        </property>
        <item>
         <widget class="QWidget" name="widget_InfoSong" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>815</width>
+           <height>210</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>0</width>
+           <height>210</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">#widget_InfoSong{
 	/*background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:2, fx:0.499963, fy:0.506, stop:0 rgba(1, 1, 1, 173), stop:1 rgba(111, 111, 111, 255));*/
 	
 	background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:2, fx:0.499963, fy:0.506, stop:0 rgba(1, 1, 1, 173), stop:1 rgba(0, 0, 0, 255));
-	border-top-right-radius: 20px;
-	border-bottom-right-radius: 20px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
 
 #label_SongName{

@@ -61,7 +61,7 @@ class Ui_Visualizer_Song(object):
 
         self.widget_Song = QWidget(self.centralwidget)
         self.widget_Song.setObjectName(u"widget_Song")
-        self.widget_Song.setMinimumSize(QSize(815, 210))
+        self.widget_Song.setMinimumSize(QSize(815, 0))
         self.widget_Song.setMaximumSize(QSize(0, 210))
         self.widget_Song.setStyleSheet(u"#widget_Song{\n"
 "	border-image: url(resources/images/Spotify_visualizer_logo.png);\n"
@@ -74,12 +74,14 @@ class Ui_Visualizer_Song(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.widget_InfoSong = QWidget(self.widget_Song)
         self.widget_InfoSong.setObjectName(u"widget_InfoSong")
+        self.widget_InfoSong.setMinimumSize(QSize(815,210))
+        self.widget_InfoSong.setMaximumSize(QSize(0,210))
         self.widget_InfoSong.setStyleSheet(u"#widget_InfoSong{\n"
 "	/*background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:2, fx:0.499963, fy:0.506, stop:0 rgba(1, 1, 1, 173), stop:1 rgba(111, 111, 111, 255));*/\n"
 "	\n"
 "	background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:2, fx:0.499963, fy:0.506, stop:0 rgba(1, 1, 1, 173), stop:1 rgba(0, 0, 0, 255));\n"
-"	border-top-right-radius: 20px;\n"
-"	border-bottom-right-radius: 20px;\n"
+"	border-top-right-radius: 10px;\n"
+"	border-bottom-right-radius: 10px;\n"
 "}\n"
 "\n"
 "#label_SongName{\n"

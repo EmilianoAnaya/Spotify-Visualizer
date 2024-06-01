@@ -1,9 +1,10 @@
 from resources.constants.SPOTIFY_CREDENTIALS import CLIENT_ID, CLIENT_SECRET, REDIRECT_UI
-from PySide6.QtCore import QTimer, Qt
+from PySide6.QtCore import QTimer, Qt, QPropertyAnimation
 from frontend.ui_visualizer_song import Ui_Visualizer_Song
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QIcon
 from spotipy.oauth2 import SpotifyOAuth
+from time import sleep
 import tempfile
 import requests
 import spotipy
@@ -14,6 +15,7 @@ class Visualizer_Song(QMainWindow):
         super().__init__()
         self.ui = Ui_Visualizer_Song()
         self.ui.setupUi(self)
+        self.ui.widget_Song.setMaximumHeight(210)
         icon = QIcon("resources/images/Spotify_visualizer_logo.png")
         self.setWindowIcon(icon)
 
@@ -26,9 +28,12 @@ class Visualizer_Song(QMainWindow):
         self.flagdelete = False
 
         self.CheckTimer = QTimer()
-        self.CheckTimer.setInterval(4000)
+        self.CheckTimer.setInterval(3000)
         self.CheckTimer.timeout.connect(self.CheckCurrentTrack)
         self.CheckTimer.start()
+
+        self.Animation = QPropertyAnimation(self.ui.widget_Song, b"maximumHeight")
+        self.Animation.setDuration(300)
 
     def truncate_text(self, text: str, label) -> str:
         font_metrics = label.fontMetrics()
@@ -74,12 +79,7 @@ class Visualizer_Song(QMainWindow):
             self.CheckTimer.setInterval(4000)
             return
         if not self.CheckSameSong(results['item']['id']):
-            delete_tmp_file = self.tmp_file_path
-            self.tmp_file_path = self.setAlbumCover(results['item']['album']['images'][1]["url"])
-            self.setSongInfo(results['item']['name'],results['item']['artists'])
-            self.flagdelete = True
-            if delete_tmp_file != "":
-                self.DeleteTmpImage(delete_tmp_file)
+            self.WidgetAnimation(210,0, lambda:self.InsertInfo(results))
 
     def closeEvent(self,event):
         if self.flagdelete:
@@ -101,6 +101,23 @@ class Visualizer_Song(QMainWindow):
             self.move(self.pos() + delta)
             self.old_pos = event.globalPos()
 
+    def InsertInfo(self,results):
+        self.Animation.finished.disconnect()
+        self.WidgetAnimation(0,210)
+        delete_tmp_file = self.tmp_file_path
+        self.tmp_file_path = self.setAlbumCover(results['item']['album']['images'][1]["url"])
+        self.setSongInfo(results['item']['name'],results['item']['artists'])
+        self.flagdelete = True
+        if delete_tmp_file != "":
+            self.DeleteTmpImage(delete_tmp_file)
+    
+    def WidgetAnimation(self,StartValue: int, EndValue: int, callback=None):
+        self.Animation.setStartValue(StartValue)
+        self.Animation.setEndValue(EndValue)
+        if callback: 
+            self.Animation.finished.connect(callback)
+        self.Animation.start()
+    
     def DeleteTmpImage(self, tmp_file: str) -> None:
         os.remove(tmp_file)
         os.rmdir(os.path.dirname(tmp_file))
