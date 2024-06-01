@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Spotify_visualizer_logo.png</file>
+  </qresource>
+</RCC>

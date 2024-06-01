@@ -1,12 +1,11 @@
-from resources.constants.SPOTIFY_CREDENTIALS import CLIENT_ID, CLIENT_SECRET, REDIRECT_UI
-from PySide6.QtCore import QTimer, Qt, QPropertyAnimation
 from frontend.ui_visualizer_song import Ui_Visualizer_Song
+from PySide6.QtCore import QTimer, Qt, QPropertyAnimation
+from backend.SpotifyAuth import get_Spotify
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QIcon
-from spotipy.oauth2 import SpotifyOAuth
 import tempfile
 import requests
-import spotipy
+import json
 import os
 
 class Visualizer_Song(QMainWindow):
@@ -17,8 +16,12 @@ class Visualizer_Song(QMainWindow):
         self.ui.widget_Song.setMaximumHeight(210)
         icon = QIcon("resources/images/Spotify_visualizer_logo.png")
         self.setWindowIcon(icon)
+        with open('resources/credentials/data.json',"r") as file:
+            credentials = json.load(file)
+            CLIENT_ID = credentials["Client_ID"]
+            CLIENT_SECRET = credentials["Client_Secret"]
 
-        self.spotify = spotipy.Spotify(auth_manager=SpotifyOAuth(CLIENT_ID, CLIENT_SECRET, REDIRECT_UI, scope="user-read-playback-state"))
+        self.spotify = get_Spotify(CLIENT_ID,CLIENT_SECRET)
         self.CurrentTrack:str = ""
         self.tmp_file_path: str = ""
 

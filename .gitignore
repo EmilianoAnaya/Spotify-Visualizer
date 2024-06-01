@@ -3,6 +3,7 @@
 __pycache__/
 dist
 build
-App.exe
 App.spec
+Setup.spec
 test.py
+data.json
